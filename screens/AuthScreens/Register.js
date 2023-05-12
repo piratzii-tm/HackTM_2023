@@ -9,7 +9,6 @@ import {useNavigation} from "@react-navigation/native";
 export default function Register(){
 
     const [mail, setMail] = useState("")
-    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const navigator = useNavigation();
@@ -18,10 +17,9 @@ export default function Register(){
             .then((userCredentials) => {
                 const user = userCredentials.user;
                 console.log("Registered with "+user.email)
-                addNewUser(username,mail);
+                addNewUser(mail);
                 setMail("")
                 setPassword("")
-                setUsername("")
                 // navigation.replace("Home")
             }).catch(err => alert(err))
     }
