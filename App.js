@@ -7,45 +7,68 @@ import {
 } from "./firebase";
 
 import Home from "./screens/AppScreens/Home";
+import PostRegister from "./screens/AppScreens/PostRegister";
 import Login from "./screens/AuthScreens/Login";
 import Register from "./screens/AuthScreens/Register";
+import {PostRegisterContext} from "./helpers/context/PostRegisterContext";
+import {
+    getData,
+    setData
+} from "./helpers/asyncStorageFunctions";
 
 const Stack = createNativeStackNavigator()
 
-const AppStack = ()=>{
+const AppStack = (userInfo,setUserInfo)=>{
+
   return(
-      <Stack.Navigator>
-        <Stack.Screen name={"Home"} component={Home}/>
-      </Stack.Navigator>
+      <PostRegisterContext.Provider value={{userInfo,setUserInfo}}>
+          <Stack.Navigator>
+              {
+                  userInfo?
+                      <Stack.Screen name={"Home"} component={Home}/>
+                      :
+                      <Stack.Screen name={"PostRegister"} component={PostRegister}/>
+              }
+          </Stack.Navigator>
+      </PostRegisterContext.Provider>
   )
 }
 
 const AuthStack =()=>{
   return(
       <Stack.Navigator>
-        <Stack.Screen name={"Login"} component={Login}/>
-        <Stack.Screen name={"Register"} component={Register}/>
+          <Stack.Screen name={"Login"} component={Login}/>
+          <Stack.Screen name={"Register"} component={Register}/>
       </Stack.Navigator>
   )
 }
 export default function App() {
 
   const [isLogged, setIsLogged] = useState(false)
+    const [userInfo, setUserInfo] = useState(false);
+
+    const get = async () => {
+        await getData("userInfo").then(res => {
+            setUserInfo(res === true);
+        })
+    }
+
 
   useEffect(()=>{
-    onAuthStateChanged(auth, user=>{
-      if(user){
-        setIsLogged(true)
-      }else{
-        setIsLogged(false)
-      }
-    })
+        onAuthStateChanged(auth, user=>{
+          if(user){
+            setIsLogged(true)
+          }else{
+            setIsLogged(false)
+          }
+        })
+        get()
   })
 
   return (
       <NavigationContainer>
         {
-          isLogged?AppStack():AuthStack()
+          isLogged?AppStack(userInfo,setUserInfo):AuthStack()
         }
       </NavigationContainer>
   );

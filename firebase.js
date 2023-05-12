@@ -40,10 +40,14 @@ const auth = initializeAuth(app, {
     persistence: getReactNativePersistence(AsyncStorage)
 });
 
-async function addNewUser(username, mail){
+async function addNewUser(mail){
     await addDoc(collection(firestore, "User"),{
-        username:username,
         mail:mail,
+        first_name:"",
+        last_name:"",
+        height:"",
+        weight:"",
+        gender:""
     })
 
 }
