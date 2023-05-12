@@ -29,12 +29,6 @@ export default function Register(){
     return (
         <View>
             <TextInput
-                placeholder={"Enter your desired username..."}
-                value={username}
-                style={{}}
-                onChangeText={text=>setUsername(text)}
-            />
-            <TextInput
                 placeholder={"Enter your mail..."}
                 value={mail}
                 style={{}}
