@@ -4,6 +4,7 @@ import {
     signOut,
     auth
 } from "../../firebase";
+import {setData} from "../../helpers/asyncStorageFunctions";
 
 export default function Home(){
 
@@ -13,6 +14,7 @@ export default function Home(){
                 console.log("** Logged of" )
             })
             .catch(err => alert(err))
+        setData("userInfo","false")
     }
 
     return (
