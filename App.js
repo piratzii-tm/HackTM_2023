@@ -6,15 +6,14 @@ import {
   onAuthStateChanged
 } from "./firebase";
 
-import Home from "./screens/AppScreens/Home";
+import AppNavigation from "./screens/AppScreens/AppNavigation";
 import PostRegister from "./screens/AppScreens/PostRegister";
-import Login from "./screens/AuthScreens/Login";
-import Register from "./screens/AuthScreens/Register";
 import {PostRegisterContext} from "./helpers/context/PostRegisterContext";
 import {
     getData,
     setData
 } from "./helpers/asyncStorageFunctions";
+import LoginRegister from "./screens/AuthScreens/LoginRegister";
 
 const Stack = createNativeStackNavigator()
 
@@ -25,7 +24,7 @@ const AppStack = (userInfo,setUserInfo)=>{
           <Stack.Navigator>
               {
                   userInfo?
-                      <Stack.Screen name={"Home"} component={Home}/>
+                      <Stack.Screen options={{headerShown:false}} name={"AppNavigation"} component={AppNavigation}/>
                       :
                       <Stack.Screen name={"PostRegister"} component={PostRegister} options={{headerShown: false}}/>
               }
@@ -37,8 +36,7 @@ const AppStack = (userInfo,setUserInfo)=>{
 const AuthStack =()=>{
   return(
       <Stack.Navigator>
-          <Stack.Screen name={"Login"} component={Login}/>
-          <Stack.Screen name={"Register"} component={Register}/>
+          <Stack.Screen name={"Auth"} component={LoginRegister}/>
       </Stack.Navigator>
   )
 }

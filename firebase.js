@@ -18,7 +18,12 @@ import {
 import {
     getFirestore,
     addDoc,
-    collection
+    collection,
+    updateDoc,
+    doc,
+    query,
+    where,
+    getDocs
 } from "firebase/firestore"
 
 const firebaseConfig = {
@@ -40,6 +45,19 @@ const auth = initializeAuth(app, {
     persistence: getReactNativePersistence(AsyncStorage)
 });
 
+async function addUserId(mail,id){
+
+    await updateDoc(doc(firestore,"Users",id),{
+        mail:mail,
+        first_name:"",
+        last_name:"",
+        height:"",
+        weight:"",
+        gender:"",
+        id:id
+    })
+}
+
 async function addNewUser(mail){
     await addDoc(collection(firestore, "Users"),{
         mail:mail,
@@ -47,9 +65,33 @@ async function addNewUser(mail){
         last_name:"",
         height:"",
         weight:"",
-        gender:""
-    })
+        gender:"",
+        id:""
+    }).then(res=>addUserId(mail,res.id))
+}
+async function addUserInfo(mail,firstName,lastName,height,weight,gender){
+    const user = query(
+        collection(firestore,"Users"),
+        where("mail","==",mail)
+    )
+    const querySnapshot = await getDocs(user)
+    const allDocs = querySnapshot.docs
+    let userId = allDocs[0].data().id
+    let aux = "";
+    for(let i=0;i<userId.length;i++){
+        aux = aux + userId[i]
+    }
+    userId=aux;
 
+    await updateDoc(doc(firestore,"Users",userId),{
+        mail:mail,
+        first_name:firstName,
+        last_name:lastName,
+        height:height,
+        weight:weight,
+        gender:gender,
+        id:userId
+    })
 }
 
 export {
@@ -63,5 +105,6 @@ export {
     getAuth,
 
     //firestore
-    addNewUser
+    addNewUser,
+    addUserInfo
 }
