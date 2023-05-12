@@ -27,7 +27,7 @@ const AppStack = (userInfo,setUserInfo)=>{
                   userInfo?
                       <Stack.Screen name={"Home"} component={Home}/>
                       :
-                      <Stack.Screen name={"PostRegister"} component={PostRegister}/>
+                      <Stack.Screen name={"PostRegister"} component={PostRegister} options={{headerShown: false}}/>
               }
           </Stack.Navigator>
       </PostRegisterContext.Provider>

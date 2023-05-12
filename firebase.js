@@ -41,7 +41,7 @@ const auth = initializeAuth(app, {
 });
 
 async function addNewUser(mail){
-    await addDoc(collection(firestore, "User"),{
+    await addDoc(collection(firestore, "Users"),{
         mail:mail,
         first_name:"",
         last_name:"",
