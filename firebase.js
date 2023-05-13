@@ -38,7 +38,6 @@ const firebaseConfig = {
 };
 
 
-
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
@@ -106,7 +105,7 @@ const uploadPdf = async (pdfUri, pdfName) => {
     return snapshot.ref.getDownloadURL();
 };
 
-async function uploadDocumentPdf(name,mail,link){
+async function uploadDocumentPdf(name,mail,link,startDate){
     await addDoc(collection(firestore, "Users_documents"),{
         doc_name:name,
         pdf_link:link,
@@ -114,7 +113,7 @@ async function uploadDocumentPdf(name,mail,link){
         check_type:"",
         check_results:"",
         doctor:"",
-        start_date:"",
+        start_date:startDate,
         final_date:"",
         image_link:""
     })

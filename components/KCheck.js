@@ -8,7 +8,6 @@ export default function KCheck({link, check_type, date}){
 
     const [source, setSource] = useState({uri:link})
 
-    console.log(link)
     return(
         <View>
             <KSpacer height={10}/>
