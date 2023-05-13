@@ -2,7 +2,6 @@ import {StyleSheet} from "react-native";
 
 const PostRegister_Style = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
     },
@@ -37,6 +36,8 @@ const PostRegister_Style = StyleSheet.create({
         borderRadius: 10,
 
     }
+
+
 });
 
 export {PostRegister_Style}
