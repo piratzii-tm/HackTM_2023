@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {GRAY, GREEN} from "./ColorManager";
 
 const PostRegister_Style = StyleSheet.create({
     container: {
@@ -17,7 +18,7 @@ const PostRegister_Style = StyleSheet.create({
 
     textInput: {
         borderWidth: 1,
-        borderColor: "#A9A9A9",
+        borderColor: GRAY,
         borderRadius: 10,
         height: 45,
         padding: 10,
@@ -32,9 +33,8 @@ const PostRegister_Style = StyleSheet.create({
         justifyContent: "center",
         height: 50,
         width: "90%",
-        backgroundColor: "#78ff69",
+        backgroundColor: GREEN,
         borderRadius: 10,
-
     }
 
 

@@ -11,6 +11,7 @@ import {setData} from "../../helpers/asyncStorageFunctions";
 import KSpacer from "../../components/KSpacer";
 import {IfRegister, IfSignIn, LoginRegister_Style, TextRegister, TextSignIn} from "../../styles/LoginRegister_Style";
 import {PostRegister_Style} from "../../styles/PostRegister_Style";
+import {BLUE} from "../../styles/ColorManager";
 
 export default function LoginRegister(){
     const [condition, setCondition] = useState(true)
@@ -43,7 +44,7 @@ export default function LoginRegister(){
         <View style={LoginRegister_Style.container}>
             <KSpacer/>
             <View style={LoginRegister_Style.up}>
-                <Image style={{height:"50%", width: "50%", resizeMode: "contain"}} source={require("../../media/medical-team.png")}/>
+                <Image style={{height:"45%", width: "45%", resizeMode: "contain"}} source={require("../../media/medical-team.png")}/>
                 <Image style={{height: "40%", width: "90%", resizeMode: "contain"}} source={require("../../media/icheck-logo.png")}/>
             </View>
             <View style={LoginRegister_Style.down}>
@@ -79,7 +80,7 @@ export default function LoginRegister(){
 
                     {condition ? <>
                         <TouchableOpacity style={{paddingLeft: 10}} onPress={() => alert("Reset password")}>
-                            <Text style={{color: "blue"}}>Reset password</Text>
+                            <Text style={{color: BLUE}}>Reset password</Text>
                         </TouchableOpacity>
                         <KSpacer/>
 
