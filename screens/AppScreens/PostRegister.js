@@ -1,4 +1,4 @@
-import {Text, View, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import {Text, View, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView} from "react-native";
 import {useContext, useState} from 'react'
 import {
     addUserInfo, auth,
@@ -21,6 +21,7 @@ export default function PostRegister(){
     const [age, setAge] = useState("")
 
     return (
+        <View style={{height: "100%", backgroundColor: "white"}}>
         <ScrollView contentContainerStyle={PostRegister_Style.container}>
             <KSpacer height={25}/>
             <Text style={{fontWeight: "bold", fontSize: 24}}>Personal Information</Text>
@@ -78,6 +79,6 @@ export default function PostRegister(){
                 <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Save</Text>
             </TouchableOpacity>
         </ScrollView>
-
+        </View>
     )
 }
