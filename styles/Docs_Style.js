@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {BG, GREEN} from "./ColorManager";
 
 const Docs_Style = StyleSheet.create({
     container: {
@@ -15,7 +16,7 @@ const Docs_Style = StyleSheet.create({
     },
     textInput: {
         borderWidth: 1,
-        borderColor: "#A9A9A9",
+        borderColor: BG,
         borderRadius: 10,
         height: 50,
         padding: 10,
@@ -26,7 +27,7 @@ const Docs_Style = StyleSheet.create({
         justifyContent: "center",
         height: 50,
         width: "40%",
-        backgroundColor: "#78ff69",
+        backgroundColor: GREEN,
         borderRadius: 10,
 
     },
@@ -39,7 +40,7 @@ const Docs_Style = StyleSheet.create({
         justifyContent: "center",
         height: 40,
         width: "50%",
-        backgroundColor: "#70c468",
+        backgroundColor: GREEN,
         borderRadius: 10,
 
     },
