@@ -23,15 +23,6 @@ export default function Home(){
         get()
     },)
 
-    const handleSignOut = () => {
-        signOut(auth)
-            .then(() => {
-                console.log("** Logged of" )
-            })
-            .catch(err => alert(err))
-        setData("userInfo","false")
-    }
-
     return (
         <View style={Home_Style.container}>
             <View style={{height: 30, width: "100%",backgroundColor: "white"}}>
@@ -58,14 +49,9 @@ export default function Home(){
             <View style={Home_Style.downContainer}>
 
             <Text style={Home_Style.subTitleText}>Explore Checkups</Text>
-            <TouchableOpacity
-                onPress={()=>handleSignOut()}
-            >
-                <Text>Logout</Text>
-            </TouchableOpacity>
+
             <FlatList style={Home_Style.scrollContainer} data={documents} renderItem={({item}) => <>
                 <KCheck link={item.image_link} date={"6 months"} check_type={item.check_type}/>
-                <KSpacer height={10}/>
                 <KCheck link={item.image_link} date={"6 months"} check_type={item.check_type}/>
             </>
             }/>
