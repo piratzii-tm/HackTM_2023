@@ -5,17 +5,13 @@ import KSpacer from "../../components/KSpacer";
 import { Platform } from 'react-native';
 import {useEffect, useState} from "react";
 import {Docs_Style} from "../../styles/Docs_Style";
+import {useNavigation} from "@react-navigation/native";
 
-const pickPdf = async () => {
-    try {
-        const pickDoc = await DocumentPicker.getDocumentAsync()
-        return {uri: pickDoc.uri, name: pickDoc.name}
-    } catch (err) {
-        console.log(err);
-    }
-};
+
 
 export default function Docs(){
+
+    const navigator = useNavigation()
 
     const [pdfDoc, setPdfDoc ] = useState("")
     const [isUploaded,setIsUploaded] = useState(false)
@@ -24,7 +20,7 @@ export default function Docs(){
     const [documents,setDocuments] = useState([])
 
     useEffect( ()=>{
-        const get = async () => await getDocuments(auth.currentUser?.email).then(res=>{
+        const get = async () => await getDocuments().then(res=>{
             let aux = []
             res.map(e=>aux.push(e.data()))
             setDocuments(aux)
@@ -87,6 +83,13 @@ export default function Docs(){
             <FlatList data={documents} renderItem={({item}) =>
                 <Text>{item.doc_name}</Text>
             }/>
+            <TouchableOpacity
+                onPress={()=>{
+                    navigator.navigate("Forum")
+                }}
+            >
+                <Text>Upload</Text>
+            </TouchableOpacity>
         </View>
     )
 }

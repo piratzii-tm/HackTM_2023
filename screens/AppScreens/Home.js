@@ -19,12 +19,12 @@ export function getCurrent(startDate){
 }
 
 export default function Home(){
-
-    const [documents,setDocuments] = useState([])
     const navigator = useNavigation()
+    const [documents,setDocuments] = useState([])
+
 
     useEffect( ()=>{
-        const get = async () => await getDocuments(auth.currentUser?.email).then(res=>{
+        const get = async () => await getDocuments().then(res=>{
             let aux = []
             res.map(e=>aux.push(e.data()))
             setDocuments(aux)

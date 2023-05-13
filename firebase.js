@@ -28,13 +28,12 @@ import {
 import 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBKl7xeyIteMVFqfNg5APpuSifk5xCjjzs",
-    authDomain: "hacktm-2023.firebaseapp.com",
-    projectId: "hacktm-2023",
-    storageBucket: "hacktm-2023.appspot.com",
-    messagingSenderId: "906556736610",
-    appId: "1:906556736610:web:93c2c461b999d0c201bd3b",
-    measurementId: "G-K8T03P1G2H"
+    apiKey: "AIzaSyCqZIrX56Z5kX7_rjtRkjhMQe3vkTlMWy4",
+    authDomain: "hacktm23-28b03.firebaseapp.com",
+    projectId: "hacktm23-28b03",
+    storageBucket: "hacktm23-28b03.appspot.com",
+    messagingSenderId: "826732405496",
+    appId: "1:826732405496:web:88c4b32e63a30188ca910d"
 };
 
 
@@ -105,24 +104,43 @@ const uploadPdf = async (pdfUri, pdfName) => {
     return snapshot.ref.getDownloadURL();
 };
 
-async function uploadDocumentPdf(name,mail,link,startDate){
+function getDaysCheckup(check){
+    let checks = ["Blood Analysis" , "Lungs Check" , "Eyes Check" , "Dental Check"]
+    let days = [120,500,90,30]
+
+    let index = checks.findIndex(i=>i===check)
+    console.log(days[index])
+    return days[index]
+
+
+}
+async function uploadDocumentPdf(mail,link,startDate,doctor,check){
+    const image = query(
+        collection(firestore,"Checkups"),
+        where("check_type","==",check)
+    )
+    const querySnapshot = await getDocs(image)
+    const allDocs = querySnapshot.docs
+    let check_image = allDocs[0].data().image_link
+
+    let result = new Date(startDate);
+    result.setDate(result.getDate() + getDaysCheckup(check));
+
     await addDoc(collection(firestore, "Users_documents"),{
-        doc_name:name,
         pdf_link:link,
         user_mail:mail,
-        check_type:"",
+        check_type:check,
         check_results:"",
-        doctor:"",
-        start_date:startDate,
-        final_date:"",
-        image_link:""
+        doctor:doctor,
+        start_date:String(startDate),
+        final_date:String(result),
+        image_link:check_image
     })
 }
 
-async function getDocuments(mail){
+async function getDocuments(){
     const getDocumentsQ = query(
-        collection(firestore,"Users_documents"),
-        where("user_mail","==",mail)
+        collection(firestore,"Checkups"),
     )
 
     const querySnapshot = await getDocs(getDocumentsQ)
