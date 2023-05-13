@@ -84,7 +84,7 @@ export default function LoginRegister(){
                             </TouchableOpacity>
                          </>
                     }
-
+                <KSpacer height={20}/>
             </View>
         </View>
 
