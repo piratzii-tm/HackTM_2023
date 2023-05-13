@@ -72,76 +72,28 @@ export default function LoginRegister(){
                     <TextInput placeholder="Type password here..." style={LoginRegister_Style.textInput}
                                value = {password}
                                onChangeText={text=>setPassword(text)}/>
+
                 </View>
 
                     {condition ? <>
+                        <TouchableOpacity style={{paddingLeft: 10}} onPress={() => alert("Reset password")}>
+                            <Text style={{color: "blue"}}>Reset password</Text>
+                        </TouchableOpacity>
+                        <KSpacer/>
+
                             <TouchableOpacity style={LoginRegister_Style.saveButton} onPress={()=>handleLoginIn()}>
                              <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Sign In</Text>
                             </TouchableOpacity>
                         </>:<>
+                            <KSpacer/>
                             <TouchableOpacity style={LoginRegister_Style.saveButton} onPress={()=>handleRegistration()}>
                             <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Register</Text>
                             </TouchableOpacity>
                          </>
                     }
                 <KSpacer height={20}/>
+                <Text style={{alignSelf: "center", fontSize: 12}}>Terms and Conditions</Text>
             </View>
         </View>
-
-        // <View>
-        //     <TouchableOpacity
-        //         onPress={()=>setCondition(true)}
-        //     >
-        //         <Text>Signin</Text>
-        //     </TouchableOpacity>
-        //     <TouchableOpacity
-        //         onPress={()=>setCondition(false)}
-        //     >
-        //         <Text>Signup</Text>
-        //     </TouchableOpacity>
-        //     {
-        //         condition ?
-        //             <View>
-        //                 <TextInput
-        //                     placeholder={"Enter your email..."}
-        //                     style={{}}
-        //                     value={mail}
-        //                     onChangeText={text => setMail(text)}
-        //                 />
-        //                 <TextInput
-        //                     placeholder={"Enter your password..."}
-        //                     style={{}}
-        //                     value={password}
-        //                     onChangeText={text=>setPassword(text)}
-        //                 />
-        //                 <TouchableOpacity
-        //                     style={{}}
-        //                     onPress={()=>handleLoginIn()}
-        //                 >
-        //                     <Text style={{}}>Login</Text>
-        //                 </TouchableOpacity>
-        //             </View>
-        //             :
-        //             <View>
-        //                 <TextInput
-        //                     placeholder={"Enter your mail..."}
-        //                     value={mail}
-        //                     style={{}}
-        //                     onChangeText={text=>setMail(text)}
-        //                 />
-        //                 <TextInput
-        //                     placeholder={"Enter your password..."}
-        //                     value={password}
-        //                     style={{}}
-        //                     onChangeText={text=>setPassword(text)}/>
-        //                 <TouchableOpacity
-        //                     onPress={()=>handleRegistration()}
-        //                     style={{}}
-        //                 >
-        //                     <Text>Register</Text>
-        //                 </TouchableOpacity>
-        //             </View>
-        //     }
-        // </View>
     )
 }

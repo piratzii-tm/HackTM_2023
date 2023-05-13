@@ -51,14 +51,14 @@ const LoginRegister_Style = StyleSheet.create({
 
     down: {
         flex: 1,
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         width: "100%",
     },
 
     sign_reg_container: {
         padding: 3,
         height: 60,
-        width: "90%",
+        width: "95%",
         backgroundColor: "#A9A9A9",
         alignSelf: "center",
         borderRadius: 10,
@@ -67,12 +67,10 @@ const LoginRegister_Style = StyleSheet.create({
     },
 
     textInputContainer: {
-        maxHeight: 90,
-        minHeight: 50,
+        height: 90,
         width: "100%",
         padding: 10,
         flexDirection: "column",
-
     },
 
     text: {
