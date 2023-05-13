@@ -110,8 +110,13 @@ async function uploadDocumentPdf(name,mail,link){
     await addDoc(collection(firestore, "Users_documents"),{
         doc_name:name,
         pdf_link:link,
-        user_mail:mail
-
+        user_mail:mail,
+        check_type:"",
+        check_results:"",
+        doctor:"",
+        start_date:"",
+        final_date:"",
+        image_link:""
     })
 }
 
