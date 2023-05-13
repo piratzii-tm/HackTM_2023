@@ -37,11 +37,11 @@ export default function Home(){
 
                 <View style={Home_Style.upMidContainer}>
                     <Text style={{fontSize: 14}}>Hello,</Text>
-                    <Text style={{fontSize: 20, fontWeight: "bold"}}>Julia Anamaria</Text>
+                    <Text style={{color:"#123dff", fontSize: 20, fontWeight: "bold"}}>Julia Anamaria</Text>
                 </View>
 
                 <View style={Home_Style.upRightContainer}>
-                    <MaterialIcons name="notifications" size={30} color={"black"}
+                    <MaterialIcons name="notifications" size={30} color={"#123dff"}
                         onPress={() => alert("Notificarea aia blana")}
                     />
                 </View>
