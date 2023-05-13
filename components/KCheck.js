@@ -7,11 +7,14 @@ export default function KCheck({link, check_type, date}){
     const [source, setSource] = useState({uri:link})
 
     return(
-        <TouchableOpacity>
-            <Image style={{width:30,height:30}}source={source}/>
-            <View>
-                <Text>{check_type}</Text>
-                <Text>{date} months</Text>
+        <TouchableOpacity style={KCheck_Style.container}>
+            <View style={KCheck_Style.imageContainer}>
+                <Image style={KCheck_Style.image} source={source}/>
+            </View>
+
+            <View style={KCheck_Style.rightContainer}>
+                <Text style={{fontSize: 16 ,fontWeight: "bold"}}>{check_type}</Text>
+                <Text style={{fontSize: 14 ,color: "#C0C0C0"}}>Last check: {date}</Text>
             </View>
         </TouchableOpacity>
     )
