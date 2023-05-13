@@ -5,6 +5,15 @@ import KSpacer from "../../components/KSpacer";
 import { Platform } from 'react-native';
 import {useEffect, useState} from "react";
 import {Docs_Style} from "../../styles/Docs_Style";
+import {useNavigation} from "@react-navigation/native";
+
+const DEFAULT_HEIGHT = 500;
+const DEFAULT_WITH = 600;
+const defaultPickerOptions = {
+    cropping: true,
+    height: DEFAULT_HEIGHT,
+    width: DEFAULT_WITH,
+};
 
 const pickPdf = async () => {
     try {
@@ -17,11 +26,15 @@ const pickPdf = async () => {
 
 export default function Docs(){
 
+    const navigator = useNavigation()
+
     const [pdfDoc, setPdfDoc ] = useState("")
     const [isUploaded,setIsUploaded] = useState(false)
     const [name, setName] = useState("")
     const [specialStyle,setSpecialStyle] = useState({backgroundColor: "#70c468"})
     const [documents,setDocuments] = useState([])
+    const [acces, setAcces ] = useState(true)
+
 
     useEffect( ()=>{
         const get = async () => await getDocuments(auth.currentUser?.email).then(res=>{
