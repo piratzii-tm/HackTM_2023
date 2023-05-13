@@ -1,4 +1,4 @@
-import {Text, View, TextInput, TouchableOpacity, Vibration} from "react-native";
+import {Text, View, TextInput, TouchableOpacity, Vibration, Image, ScrollView} from "react-native";
 import {useState} from "react";
 import {
     addNewUser, addUserInfo,
@@ -43,9 +43,11 @@ export default function LoginRegister(){
         <View style={LoginRegister_Style.container}>
             <KSpacer/>
             <View style={LoginRegister_Style.up}>
-
+                <Image style={{height:"50%", width: "50%", resizeMode: "contain"}} source={require("../../media/medical-team.png")}/>
+                <Image style={{height: "40%", width: "90%", resizeMode: "contain"}} source={require("../../media/icheck-logo.png")}/>
             </View>
             <View style={LoginRegister_Style.down}>
+                <ScrollView>
                 <View style={LoginRegister_Style.sign_reg_container}>
 
                     <TouchableOpacity style={condition ?  IfSignIn(): IfRegister()}
@@ -93,7 +95,8 @@ export default function LoginRegister(){
                     }
                 <KSpacer height={20}/>
                 <Text style={{alignSelf: "center", fontSize: 12}}>Terms and Conditions</Text>
-            </View>
+                </ScrollView>
+                </View>
         </View>
     )
 }
