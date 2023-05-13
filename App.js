@@ -36,7 +36,7 @@ const AppStack = (userInfo,setUserInfo)=>{
 const AuthStack =()=>{
   return(
       <Stack.Navigator>
-          <Stack.Screen name={"Auth"} component={LoginRegister}/>
+          <Stack.Screen name={"Auth"} component={LoginRegister} options={{headerShown: false}}/>
       </Stack.Navigator>
   )
 }

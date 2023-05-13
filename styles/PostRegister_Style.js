@@ -37,6 +37,8 @@ const PostRegister_Style = StyleSheet.create({
         borderRadius: 10,
 
     }
+
+
 });
 
 export {PostRegister_Style}
