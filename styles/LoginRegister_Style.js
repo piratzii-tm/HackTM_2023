@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {BG, BLUE, GRAY} from "./ColorManager";
 
 export const IfSignIn = function (options){
     return {
@@ -15,7 +16,7 @@ export const IfRegister = function (options){
     return {
         flex: 1,
         padding: 10,
-        backgroundColor: "#E8E8E8",
+        backgroundColor: BG,
         borderRadius: 10,
         alignItems: "center",
         justifyContent: "center",
@@ -24,7 +25,7 @@ export const IfRegister = function (options){
 
 export const TextSignIn = function (options){
     return {
-        color: "#123dff",
+        color: BLUE,
         fontSize: 16,
     }
 }
@@ -38,7 +39,7 @@ export const TextRegister = function (options){
 const LoginRegister_Style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: "white",
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -61,7 +62,7 @@ const LoginRegister_Style = StyleSheet.create({
         padding: 3,
         height: 60,
         width: "95%",
-        backgroundColor: "#E8E8E8",
+        backgroundColor: BG,
         alignSelf: "center",
         borderRadius: 10,
         flexDirection: "row",
@@ -85,14 +86,14 @@ const LoginRegister_Style = StyleSheet.create({
         justifyContent: "center",
         height: 50,
         width: "90%",
-        backgroundColor: "#123dff",
+        backgroundColor: BLUE,
         borderRadius: 10,
 
     },
 
     textInput: {
         borderWidth: 1,
-        borderColor: "#A9A9A9",
+        borderColor: GRAY,
         borderRadius: 10,
         height: 45,
         padding: 10,

@@ -98,4 +98,3 @@ async function registerForPushNotificationsAsync() {
     }
 
     return token;
-}
