@@ -74,14 +74,16 @@ export default function LoginRegister(){
                                onChangeText={text=>setPassword(text)}/>
                 </View>
 
-                <TouchableOpacity style={LoginRegister_Style.saveButton}
-                                  onPress={()=>{alert("Dame")}}
-                >
-                    {condition ?
-                        <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Sign In</Text> :
-                        <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Register</Text>
+                    {condition ? <>
+                            <TouchableOpacity style={LoginRegister_Style.saveButton} onPress={()=>handleLoginIn()}>
+                             <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Sign In</Text>
+                            </TouchableOpacity>
+                        </>:<>
+                            <TouchableOpacity style={LoginRegister_Style.saveButton} onPress={()=>handleRegistration()}>
+                            <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Register</Text>
+                            </TouchableOpacity>
+                         </>
                     }
-                </TouchableOpacity>
 
             </View>
         </View>
