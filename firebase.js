@@ -1,6 +1,5 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
-import { initializeApp } from "firebase/app";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
     getAuth,
@@ -26,6 +25,8 @@ import {
     getDocs
 } from "firebase/firestore"
 
+import 'firebase/storage';
+
 const firebaseConfig = {
     apiKey: "AIzaSyBKl7xeyIteMVFqfNg5APpuSifk5xCjjzs",
     authDomain: "hacktm-2023.firebaseapp.com",
@@ -38,7 +39,11 @@ const firebaseConfig = {
 
 
 
-const app = initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const app = firebase.initializeApp(firebaseConfig);
+
 const firestore = getFirestore()
 
 const auth = initializeAuth(app, {
@@ -93,6 +98,33 @@ async function addUserInfo(mail,firstName,lastName,height,weight,gender){
         id:userId
     })
 }
+const uploadPdf = async (pdfUri, pdfName) => {
+    const storageRef = firebase.storage().ref(`pdfs/${pdfName}`);
+    const response = await fetch(pdfUri);
+    const blob = await response.blob();
+    const snapshot = await storageRef.put(blob);
+    return snapshot.ref.getDownloadURL();
+};
+
+async function uploadDocumentPdf(name,mail,link){
+    await addDoc(collection(firestore, "Users_documents"),{
+        doc_name:name,
+        pdf_link:link,
+        user_mail:mail
+
+    })
+}
+
+async function getDocuments(mail){
+    const getDocumentsQ = query(
+        collection(firestore,"Users_documents"),
+        where("user_mail","==",mail)
+    )
+
+    const querySnapshot = await getDocs(getDocumentsQ)
+    const allDocs = querySnapshot.docs
+    return allDocs
+}
 
 export {
 
@@ -106,5 +138,10 @@ export {
 
     //firestore
     addNewUser,
-    addUserInfo
+    addUserInfo,
+
+    //firestore
+    uploadPdf,
+    uploadDocumentPdf,
+    getDocuments
 }
