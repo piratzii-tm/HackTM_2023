@@ -79,6 +79,7 @@ export default function PostRegister(){
                 <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Save</Text>
             </TouchableOpacity>
         </ScrollView>
+
         </View>
     )
 }
