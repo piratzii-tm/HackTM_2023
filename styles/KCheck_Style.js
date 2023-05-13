@@ -19,7 +19,7 @@ const KCheck_Style = StyleSheet.create({
         width:"80%",
         height:"80%",
         borderRadius: 10,
-        resizeMode:"contain"
+        resizeMode:"contain",
     },
 
     midContainer: {

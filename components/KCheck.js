@@ -8,11 +8,11 @@ export default function KCheck({link, check_type, date}){
 
     const [source, setSource] = useState({uri:link})
 
-    console.log(link)
     return(
         <View>
             <KSpacer height={10}/>
-        <TouchableOpacity style={KCheck_Style.container}>
+
+        <TouchableOpacity style={KCheck_Style.container} onPress={() => navigator.navigate("Results")}>
             <View style={KCheck_Style.imageContainer}>
                 <Image style={KCheck_Style.image} source={source}/>
             </View>

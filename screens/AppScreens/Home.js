@@ -8,8 +8,10 @@ import {setData} from "../../helpers/asyncStorageFunctions";
 import KCheck from "../../components/KCheck"
 import KSpacer from "../../components/KSpacer";
 import {Home_Style} from "../../styles/Home_Style";
-import {Ionicons, MaterialIcons} from "@expo/vector-icons";
+import {AntDesign, Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
+import {BLUE} from "../../styles/ColorManager";
+
 
 export function getCurrent(startDate){
     let start = new Date(startDate)
@@ -19,12 +21,13 @@ export function getCurrent(startDate){
 }
 
 export default function Home(){
-
+    const navigator = useNavigation()
     const [documents,setDocuments] = useState([])
     const navigator = useNavigation()
 
+
     useEffect( ()=>{
-        const get = async () => await getDocuments(auth.currentUser?.email).then(res=>{
+        const get = async () => await getDocuments().then(res=>{
             let aux = []
             res.map(e=>aux.push(e.data()))
             setDocuments(aux)
@@ -46,11 +49,11 @@ export default function Home(){
 
                 <View style={Home_Style.upMidContainer}>
                     <Text style={{fontSize: 14}}>Hello,</Text>
-                    <Text style={{color:"#123dff", fontSize: 20, fontWeight: "bold"}}>Julia Anamaria</Text>
+                    <Text style={{color:BLUE, fontSize: 20, fontWeight: "bold"}}>Julia Anamaria</Text>
                 </View>
 
                 <View style={Home_Style.upRightContainer}>
-                    <MaterialIcons name="notifications" size={30} color={"#123dff"}
+                    <MaterialIcons name="notifications" size={30} color={BLUE}
                         onPress={() => navigator.navigate("Notification")}
                     />
                 </View>
