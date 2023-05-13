@@ -73,7 +73,7 @@ export default function Docs(){
                     style={Docs_Style.addBtn}
                     disabled={!isUploaded}
                     onPress={()=>{
-                        uploadDocumentPdf(name,auth.currentUser?.email,pdfDoc).then(res=>{
+                        uploadDocumentPdf(name,auth.currentUser?.email,pdfDoc, String(new Date())).then(res=>{
                             setPdfDoc("")
                             setName("")
                             setIsUploaded(false)
