@@ -11,17 +11,20 @@ const KCheck_Style = StyleSheet.create({
     },
     imageContainer: {
         flex: 1.5,
+    justifyContent:"center",
+        alignItems:"center"
     },
 
     image: {
-        width:"100%",
-        height:"100%",
+        width:"80%",
+        height:"80%",
         borderRadius: 10,
+        resizeMode:"contain"
     },
 
     midContainer: {
         flex: 4,
-        padding: 10,
+        //padding: 10,
         justifyContent: "space-evenly",
     },
 

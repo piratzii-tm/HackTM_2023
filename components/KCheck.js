@@ -8,6 +8,7 @@ export default function KCheck({link, check_type, date}){
 
     const [source, setSource] = useState({uri:link})
 
+    console.log(link)
     return(
         <View>
             <KSpacer height={10}/>
@@ -18,7 +19,7 @@ export default function KCheck({link, check_type, date}){
 
             <View style={KCheck_Style.midContainer}>
                 <Text style={{fontSize: 16 ,fontWeight: "bold"}}>{check_type}</Text>
-                <Text style={{fontSize: 14 ,color: "#C0C0C0"}}>Last check: {date}</Text>
+                <Text style={{fontSize: 14 ,color: "#C0C0C0"}}>Last check: {date} month(s)</Text>
             </View>
             <View style={KCheck_Style.rightContainer}>
                 <AntDesign name="arrowright" size={25} color = "#E8E8E8"/>
