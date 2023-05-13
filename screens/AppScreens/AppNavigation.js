@@ -12,12 +12,14 @@ import Settings from "./Settings";
 import {FontAwesome, MaterialIcons} from "@expo/vector-icons";
 import {BLUE} from "../../styles/ColorManager";
 import {Dimensions, StatusBar} from "react-native";
+import Results from "./Results";
 
 export default function AppNavigation(){
     return(
         <Stack.Navigator>
-            <Stack.Screen name={"AppMainNavigation"} component={AppMainNavigation}/>
+            <Stack.Screen  options={{headerShown:false}} name={"AppMainNavigation"} component={AppMainNavigation}/>
             <Stack.Screen name={"Notification"} component={Notification}/>
+            <Stack.Screen options={{headerShown:false}} name={"Results"} component={Results}/>
         </Stack.Navigator>
     )
 }
