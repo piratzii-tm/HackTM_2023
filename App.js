@@ -5,7 +5,7 @@ import {
   auth,
   onAuthStateChanged
 } from "./firebase";
-
+import {Platform} from "react-native";
 import AppNavigation from "./screens/AppScreens/AppNavigation";
 import PostRegister from "./screens/AppScreens/PostRegister";
 import {PostRegisterContext} from "./helpers/context/PostRegisterContext";
@@ -62,6 +62,7 @@ export default function App() {
         })
         get()
   })
+
 
   return (
       <NavigationContainer>
