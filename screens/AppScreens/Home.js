@@ -9,6 +9,7 @@ import KCheck from "../../components/KCheck"
 import KSpacer from "../../components/KSpacer";
 import {Home_Style} from "../../styles/Home_Style";
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
+import {useNavigation} from "@react-navigation/native";
 
 export function getCurrent(startDate){
     let start = new Date(startDate)
@@ -20,6 +21,7 @@ export function getCurrent(startDate){
 export default function Home(){
 
     const [documents,setDocuments] = useState([])
+    const navigator = useNavigation()
 
     useEffect( ()=>{
         const get = async () => await getDocuments(auth.currentUser?.email).then(res=>{
@@ -28,7 +30,7 @@ export default function Home(){
             setDocuments(aux)
         })
         get()
-    },[])
+    },)
 
     return (
         <View style={Home_Style.container}>
@@ -49,7 +51,7 @@ export default function Home(){
 
                 <View style={Home_Style.upRightContainer}>
                     <MaterialIcons name="notifications" size={30} color={"#123dff"}
-                        onPress={() => alert("Notificarea aia blana")}
+                        onPress={() => navigator.navigate("Notification")}
                     />
                 </View>
             </View>
