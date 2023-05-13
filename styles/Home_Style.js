@@ -1,9 +1,11 @@
 import {StyleSheet} from "react-native";
 
+const MY_BACKROUND_COLOR = "#E8E8E8";
+
 const Home_Style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#D3D3D3",
+        backgroundColor: MY_BACKROUND_COLOR,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -46,7 +48,7 @@ const Home_Style = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#D3D3D3",
+        backgroundColor: MY_BACKROUND_COLOR,
     },
 
     subTitleText: {
