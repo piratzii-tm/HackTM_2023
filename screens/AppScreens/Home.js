@@ -10,7 +10,6 @@ import KSpacer from "../../components/KSpacer";
 import {Home_Style} from "../../styles/Home_Style";
 import {AntDesign, Entypo, Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
-import {BLUE} from "../../styles/ColorManager";
 import * as Notifications from "expo-notifications";
 import * as Device from "expo-device";
 import {PostRegisterContext} from "../../helpers/context/PostRegisterContext";
@@ -131,7 +130,7 @@ export default function Home(){
                 })
             }
 
-        })
+        },[])
         get()
 
 

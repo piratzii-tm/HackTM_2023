@@ -31,7 +31,7 @@ export default function Docs(){
             setDocuments(aux)
         })
         get()
-    },)
+    },[])
 
     return(
         <View style={Docs_Style.container}>

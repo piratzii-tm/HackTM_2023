@@ -18,7 +18,7 @@ export default function Notification() {
         })
 
         get()
-    })
+    },[])
 
 
     return (
