@@ -18,13 +18,13 @@ export default function AppNavigation(){
     return(
         <Tab.Navigator tabBarOptions={{activeTintColor: BLUE, inactiveTintColor: 'white'}}>
             <Tab.Screen  options={{headerShown:false, tabBarIcon: ({ focused }) => (
-                <FontAwesome name="home" size={30} color={focused? "#123dff": "black"} /> ),
+                <FontAwesome name="home" size={30} color={focused? BLUE: "black"} /> ),
             }}
                         name={"Home"} component={Home}
             />
             <Tab.Screen options={{headerShown:false, tabBarIcon: ({ focused }) => (
                     <MaterialIcons name="description" size={30} color={focused? BLUE: "black"} /> )}}
-                        name={"Docs"} component={Docs}/>
+                        name={"Records"} component={Docs}/>
             <Tab.Screen options={{headerShown:false, tabBarIcon: ({ focused }) => (
                     <MaterialIcons name="event" size={30} color={focused? BLUE: "black"} /> )}}
                         name={"Calendar"} component={Calendar}/>
