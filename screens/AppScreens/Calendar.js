@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
-import {View} from "react-native";
+import {View, Text} from "react-native";
 import {Calendar_Style} from "../../styles/Calendar_Style";
 import {Docs_Style} from "../../styles/Docs_Style";
 
