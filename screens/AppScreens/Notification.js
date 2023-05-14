@@ -18,7 +18,7 @@ export default function Notification() {
         })
 
         get()
-    })
+    },[])
 
 
     return (
@@ -27,7 +27,6 @@ export default function Notification() {
               <View style={{width: "100%",alignItems:"center"}}>
                   <KSpacer height={10}/>
                   <KNotif link={item.image_link} check={item.check_type} date={item.date}/>
-                  <KSpacer height={10}/>
               </View>
            }/>
        </View>

@@ -9,7 +9,7 @@ const Settings_Style = StyleSheet.create({
     },
 
     header: {
-        flex: 0.5,
+        height: 50,
         width: "100%",
         backgroundColor: "white",
         justifyContent: "center",
@@ -47,13 +47,13 @@ const Settings_Style = StyleSheet.create({
     },
 
     logOut: {
-        height: 70,
+        height: 50,
         width: "90%",
         padding: 10,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "white",
-        borderRadius: 20,
+        borderRadius: 10,
         alignSelf: "center",
     },
 

@@ -31,7 +31,7 @@ export default function Docs(){
             setDocuments(aux)
         })
         get()
-    },)
+    },[])
 
     return(
         <View style={Docs_Style.container}>
@@ -53,12 +53,23 @@ export default function Docs(){
             </View>
 
             <View style={Docs_Style.footer}>
-                <TouchableOpacity style={Docs_Style.uploadButton}
-                                  onPress={() => navigator.navigate("Forum")}
+                <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+                <TouchableOpacity style={[Docs_Style.uploadButton, {backgroundColor: BLUE}]}
+                                  onPress={() => navigator.navigate("New Medical Record")}
                 >
-                    <MaterialCommunityIcons  name="image" size={15} color={BLUE}/>
-                    <Text style={{color: BLUE, fontWeight: "bold"}}> Upload</Text>
+                    <MaterialCommunityIcons  name="camera" size={15} color="white"/>
+                    <Text style={{color: "white", fontWeight: "bold"}}> Camera</Text>
                 </TouchableOpacity>
+                </View>
+
+                <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+                    <TouchableOpacity style={Docs_Style.uploadButton}
+                                      onPress={() => navigator.navigate("New Medical Record")}
+                    >
+                        <MaterialCommunityIcons  name="image" size={15} color={BLUE}/>
+                        <Text style={{color: BLUE, fontWeight: "bold"}}> Upload</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
         </View>

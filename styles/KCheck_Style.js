@@ -8,6 +8,17 @@ const KCheck_Style = StyleSheet.create({
         flexDirection: "row",
         borderRadius: 10,
         backgroundColor: "white",
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
+
     },
     imageContainer: {
         flex: 1.5,
@@ -25,7 +36,7 @@ const KCheck_Style = StyleSheet.create({
     midContainer: {
         flex: 4,
         //padding: 10,
-        justifyContent: "space-evenly",
+        justifyContent: "center",
     },
 
     rightContainer: {
