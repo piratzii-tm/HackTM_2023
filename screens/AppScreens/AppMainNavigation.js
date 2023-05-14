@@ -7,6 +7,7 @@ import Settings from "./Settings";
 import {FontAwesome, MaterialIcons} from "@expo/vector-icons";
 import {BLUE} from "../../styles/ColorManager";
 import {Dimensions, StatusBar} from "react-native";
+import CalendarScreen from "./Calendar";
 
 const Tab = createBottomTabNavigator()
 
@@ -27,7 +28,7 @@ export default function AppNavigation(){
                         name={"Records"} component={Docs}/>
             <Tab.Screen options={{headerShown:false, tabBarIcon: ({ focused }) => (
                     <MaterialIcons name="event" size={30} color={focused? BLUE: "black"} /> )}}
-                        name={"Calendar"} component={Calendar}/>
+                        name={"Calendar"} component={CalendarScreen}/>
             <Tab.Screen options={{headerShown:false, tabBarIcon: ({ focused }) => (
                     <MaterialIcons name="settings" size={30} color={focused? BLUE: "black"} /> )}}
                         name={"Settings"} component={Settings} />

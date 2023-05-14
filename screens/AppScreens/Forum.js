@@ -105,29 +105,59 @@ export default function Forum(){
                         <Text>Dental</Text>
                     </TouchableOpacity>
                     {/*de aici nu mai sunt functionale*/}
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Hearth Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Hearth Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/heart.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Heart</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "CT Scan Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("CT Scan Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/ct-scan.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>CT Scan</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={Forum_Style.row}>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Shoulder Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Shoulder Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/shoulder.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Inflammatory</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Vascular Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Vascular Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/vascular.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Arterial</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Bladder Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Bladder Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/bladder.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Urine</Text>
