@@ -54,7 +54,7 @@ export default function Docs(){
 
             <View style={Docs_Style.footer}>
                 <TouchableOpacity style={Docs_Style.uploadButton}
-                                  onPress={() => navigator.navigate("Results")}
+                                  onPress={() => navigator.navigate("Forum")}
                 >
                     <MaterialCommunityIcons  name="image" size={15} color={BLUE}/>
                     <Text style={{color: BLUE, fontWeight: "bold"}}> Upload</Text>

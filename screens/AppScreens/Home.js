@@ -67,9 +67,11 @@ export default function Home(){
             }/>
             </View>
             <View style={Home_Style.dorcorsContainer}>
-            <ScrollView>
 
                 <Text style={{fontSize: 16 ,alignSelf: "center"}}>Explore Doctors</Text>
+                <KSpacer height={10}/>
+            <ScrollView pagingEnabled={true} horizontal={true} howsHorizontalScrollIndicator={false}>
+
                 <KSpacer height={10}/>
                 <View style={Home_Style.doctorComponent}>
                     <View style={Home_Style.doctorLeft}>

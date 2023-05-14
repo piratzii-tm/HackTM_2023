@@ -43,7 +43,7 @@ const Home_Style = StyleSheet.create({
     },
 
     downContainer: {
-        flex: 4,
+        flex: 5,
         width: "100%",
         padding: 10,
         paddingBottom: 0,
@@ -61,7 +61,7 @@ const Home_Style = StyleSheet.create({
     },
 
     dorcorsContainer: {
-        flex: 3,
+        flex: 2,
         width: "100%",
         padding: 10,
 
@@ -69,7 +69,7 @@ const Home_Style = StyleSheet.create({
 
     doctorComponent: {
         height: 100,
-        width: "100%",
+        width: 300,
         flexDirection: "row",
         borderRadius: 10,
         backgroundColor: "white",
