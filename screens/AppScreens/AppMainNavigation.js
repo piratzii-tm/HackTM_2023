@@ -7,6 +7,7 @@ import Settings from "./Settings";
 import {FontAwesome, MaterialIcons} from "@expo/vector-icons";
 import {BLUE} from "../../styles/ColorManager";
 import {Dimensions, StatusBar} from "react-native";
+import CalendarScreen from "./Calendar";
 
 const Tab = createBottomTabNavigator()
 
