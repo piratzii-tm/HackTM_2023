@@ -17,10 +17,10 @@ import LoginRegister from "./screens/AuthScreens/LoginRegister";
 
 const Stack = createNativeStackNavigator()
 
-const AppStack = (userInfo,setUserInfo)=>{
+const AppStack = (userInfo,setUserInfo,notification,setNotification,todayDate,setTodayDate)=>{
 
   return(
-      <PostRegisterContext.Provider value={{userInfo,setUserInfo}}>
+      <PostRegisterContext.Provider value={{userInfo,setUserInfo,notification,setNotification,todayDate,setTodayDate}}>
           <Stack.Navigator>
               {
                   userInfo?
@@ -44,10 +44,18 @@ export default function App() {
 
   const [isLogged, setIsLogged] = useState(false)
     const [userInfo, setUserInfo] = useState(false);
+  const [notification, setNotification] = useState(false)
+    const [todayDate, setTodayDate] = useState(0)
 
     const get = async () => {
         await getData("userInfo").then(res => {
             setUserInfo(res === true);
+        })
+        await getData("notification").then(res=>{
+            setNotification(res === true)
+        })
+        await getData("today").then(res=>{
+            setTodayDate( Number(res))
         })
     }
 
@@ -67,7 +75,7 @@ export default function App() {
   return (
       <NavigationContainer>
         {
-          isLogged?AppStack(userInfo,setUserInfo):AuthStack()
+          isLogged?AppStack(userInfo,setUserInfo,notification,setNotification,todayDate,setTodayDate):AuthStack()
         }
       </NavigationContainer>
   );
