@@ -1,17 +1,70 @@
-import {FlatList, Text, TouchableOpacity, View, ScrollView, Image, TextComponent} from "react-native";
-import {useEffect, useState} from 'react'
+import {FlatList, Text, TouchableOpacity, View, ScrollView, Image, TextComponent, Platform} from "react-native";
+import {useContext, useEffect, useRef, useState} from 'react'
 import {
     signOut,
-    auth, getDocuments
+    auth, getDocuments, addNotification
 } from "../../firebase";
-import {setData} from "../../helpers/asyncStorageFunctions";
+import {getData, setData} from "../../helpers/asyncStorageFunctions";
 import KCheck from "../../components/KCheck"
 import KSpacer from "../../components/KSpacer";
 import {Home_Style} from "../../styles/Home_Style";
 import {AntDesign, Entypo, Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
+import {BLUE} from "../../styles/ColorManager";
+import * as Notifications from "expo-notifications";
+import * as Device from "expo-device";
+import {PostRegisterContext} from "../../helpers/context/PostRegisterContext";
 import {BLUE, GRAY} from "../../styles/ColorManager";
 
+
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+    }),
+});
+async function registerForPushNotificationsAsync() {
+    let token;
+
+    if (Platform.OS === 'android') {
+        await Notifications.setNotificationChannelAsync('default', {
+            name: 'default',
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: '#FF231F7C',
+        });
+    }
+
+    if (Device.isDevice) {
+        const { status: existingStatus } = await Notifications.getPermissionsAsync();
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+            const { status } = await Notifications.requestPermissionsAsync();
+            finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+        }
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+        console.log(token);
+    } else {
+        alert('Must use physical device for Push Notifications');
+    }
+
+    return token;
+}
+async function schedulePushNotification() {
+    await Notifications.scheduleNotificationAsync({
+        content: {
+            title: "Stay healthy!",
+            body: 'Go and check the life of yours!',
+            data: { data: 'goes here' },
+        },
+        trigger: { seconds: 2 },
+    });
+}
 
 export function getCurrent(startDate){
     let start = new Date(startDate)
@@ -21,18 +74,83 @@ export function getCurrent(startDate){
 }
 
 export default function Home(){
+
+    const {notification ,setNotification,todayDate,setTodayDate} = useContext(PostRegisterContext)
+
     const navigator = useNavigation()
     const [documents,setDocuments] = useState([])
 
+    const [expoPushToken, setExpoPushToken] = useState('');
+    const [notificatioN, setNotificatioN] = useState(false);
+    const notificationListener = useRef();
+    const responseListener = useRef();
 
     useEffect( ()=>{
         const get = async () => await getDocuments().then(res=>{
             let aux = []
-            res.map(e=>aux.push(e.data()))
+            res.map(e=> {
+                aux.push(e.data())
+            })
             setDocuments(aux)
+
+            //pt testul notificatiilor
+            let date = new Date();
+            date.setDate(date.getDate()-2);
+
+            if(todayDate !== new Date().getDate()){
+                setData("notification","false")
+                setNotification(false)
+            }
+            if(!notification){
+                aux.map(d=>{
+                    let final = new Date(d.final_date)
+                    let today = new Date()
+                    console.log(final.getFullYear(),final.getMonth(),final.getDate())
+                    if(final.getFullYear() < today.getFullYear()){
+                        schedulePushNotification()
+                        addNotification(String(today),d.check_type,d.image_link,auth.currentUser?.email)
+                        setData("notification","true")
+                        setData("today",String(today.getDate()))
+                        setNotification(true)
+                        setTodayDate(today.getDate())
+                    }else if(final.getFullYear() == today.getFullYear() && final.getMonth() < today.getMonth()){
+                        schedulePushNotification()
+                        addNotification(String(today),d.check_type,d.image_link,auth.currentUser?.email)
+                        setData("notification","true")
+                        setData("today",String(today.getDate()))
+                        setNotification(true)
+                        setTodayDate(today.getDate())
+                    }else if(final.getFullYear() == today.getFullYear() && final.getMonth() == today.getMonth() && final.getDate() <= today.getDate()){
+                        schedulePushNotification()
+                        addNotification(String(today),d.check_type,d.image_link,auth.currentUser?.email)
+                        setData("notification","true")
+                        setData("today",String(today.getDate()))
+                        setNotification(true)
+                        setTodayDate(today.getDate())
+                    }
+                })
+            }
+
         })
         get()
-    },)
+
+
+
+        registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+
+        notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+            setNotificatioN(notification);
+        });
+
+        responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+            console.log(response);
+        });
+
+        return () => {
+            Notifications.removeNotificationSubscription(notificationListener.current);
+            Notifications.removeNotificationSubscription(responseListener.current);
+        };
+    },[])
 
     return (
         <View style={Home_Style.container}>

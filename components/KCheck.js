@@ -8,7 +8,7 @@ import {useNavigation} from "@react-navigation/native";
 export default function KCheck({link, check_type, date}){
 
     const [source, setSource] = useState({uri:link})
-    const navigator = useNavigation();
+    const navigator = useNavigation()
     return(
         <View>
             <KSpacer height={10}/>

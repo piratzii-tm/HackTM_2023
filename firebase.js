@@ -148,6 +148,24 @@ async function getDocuments(){
     return allDocs
 }
 
+async function addNotification(date,check,check_image,mail){
+    await addDoc(collection(firestore, "Notifications"),{
+        date:date,
+        check_type:check,
+        image_link:check_image,
+        mail:mail
+    })}
+
+async function getNotifications(mail){
+    const getDocumentsQ = query(
+        collection(firestore,"Notifications"),
+        where("mail" , "==",mail)
+    )
+
+    const querySnapshot = await getDocs(getDocumentsQ)
+    const allDocs = querySnapshot.docs
+    return allDocs
+}
 export {
 
     //functii pt autentificare
@@ -165,5 +183,7 @@ export {
     //firestore
     uploadPdf,
     uploadDocumentPdf,
-    getDocuments
+    getDocuments,
+    addNotification,
+    getNotifications
 }
