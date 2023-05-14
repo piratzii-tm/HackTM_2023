@@ -25,17 +25,18 @@ const PostRegister_Style = StyleSheet.create({
     },
 
     text: {
-        fontSize: 18,
+        fontSize: 14,
+        marginBottom: 5,
     },
 
     saveButton: {
         alignItems: "center",
         justifyContent: "center",
         height: 50,
-        width: "90%",
+        width: "95%",
         backgroundColor: GREEN,
         borderRadius: 10,
-    }
+    },
 
 
 });

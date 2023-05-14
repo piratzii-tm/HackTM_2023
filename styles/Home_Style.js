@@ -17,6 +17,16 @@ const Home_Style = StyleSheet.create({
         borderBottomLeftRadius: 20,
         backgroundColor: "white",
         flexDirection: "row",
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
     },
 
     avatar: {
@@ -40,6 +50,8 @@ const Home_Style = StyleSheet.create({
 
     upRightContainer: {
         flex: 0.5,
+        alignItems: "center",
+        justifyContent: "center",
     },
 
     downContainer: {
@@ -69,10 +81,21 @@ const Home_Style = StyleSheet.create({
 
     doctorComponent: {
         height: 100,
-        width: 335,
+        width: 280,
+        padding: 10,
         flexDirection: "row",
         borderRadius: 10,
         backgroundColor: "white",
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
     },
 
     doctorLeft: {
@@ -84,6 +107,7 @@ const Home_Style = StyleSheet.create({
 
     doctorRight: {
         flex: 4,
+        padding: 15,
         justifyContent: "center",
 
     },

@@ -18,7 +18,7 @@ const pickPdf = async () => {
 export default function Forum(){
     const [pdfDoc, setPdfDoc ] = useState("")
     const [pdfChecked, setPdfChecked] = useState(false)
-    const [btnName,setBtnName] = useState("Upload file!")
+    const [btnName,setBtnName] = useState("Upload file")
     const [specialStyle,setSpecialStyle] = useState({backgroundColor: "white"})
     const [checkType, setCheckType] = useState("")
     const [doctorName, setDoctorName] = useState("")
@@ -37,6 +37,11 @@ export default function Forum(){
     return(
         <ScrollView contentContainerStyle={Forum_Style.scrollView} style={Forum_Style.container}>
             <KSpacer height={5}/>
+            <View style={Forum_Style.miniContainer}>
+                <Text>1. Select file</Text>
+
+                <KSpacer height={5}/>
+
             <TouchableOpacity style={Forum_Style.uploadBtn}
                 onPress={()=>{
                     const pdf = pickPdf().then(res=>{
@@ -52,9 +57,11 @@ export default function Forum(){
             >
                 <Text style={Forum_Style.uploadTxt}>{btnName}</Text>
             </TouchableOpacity>
-            <View style={Forum_Style.miniContainer}>
-                <Text>1.Select category</Text>
             </View>
+            <View style={Forum_Style.miniContainer}>
+                <Text>2. Select category</Text>
+
+                <KSpacer height={5}/>
 
             <View style={Forum_Style.grid}>
                 <View style={Forum_Style.row}>
@@ -105,50 +112,93 @@ export default function Forum(){
                         <Text>Dental</Text>
                     </TouchableOpacity>
                     {/*de aici nu mai sunt functionale*/}
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Hearth Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Hearth Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/heart.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Heart</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "CT Scan Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("CT Scan Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/ct-scan.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>CT Scan</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={Forum_Style.row}>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Shoulder Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Shoulder Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/shoulder.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Inflammatory</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Vascular Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Vascular Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/vascular.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Arterial</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={Forum_Style.gridElement}>
+                    <TouchableOpacity  style={[Forum_Style.gridElement,  checkType === "Bladder Check" ? specialStyle:{backgroundColor: "white"}]}
+                                       onPress={()=>{
+                                           setSpecialStyle({backgroundColor: "gray"})
+                                           setCheckType("Bladder Check")
+                                       }
+                                       }
+                    >
                         <Image source={require("../../media/bladder.png")}  style={Forum_Style.gridImage}/>
                         <KSpacer height={5}/>
                         <Text>Urine</Text>
                     </TouchableOpacity>
                 </View>
             </View>
+            </View>
+
             <KSpacer height={10}/>
             <View style={Forum_Style.miniContainer}>
-                <Text>2.Date</Text>
-            </View>
+                <Text>3. Date</Text>
+
+                <KSpacer height={5}/>
+
             <TextInput
-                placeholder={"DD MM YYYY"}
+                style={Forum_Style.input}
+                placeholder={"DD MMM YYYY"}
+
             />
-            <View style={Forum_Style.miniContainer}>
-                <Text>3.Doctor</Text>
+
             </View>
+            <View style={Forum_Style.miniContainer}>
+                <Text>4. Doctor Name</Text>
+
+                <KSpacer height={5}/>
+
             <TextInput
+                style={Forum_Style.input}
                 placeholder={"Doctor Name"}
+
                 value={doctorName}
                 onChangeText={(text)=>setDoctorName(text)}
             />
+            </View>
             <TouchableOpacity style={Forum_Style.saveBtn}
                               disabled={!pdfChecked}
                 onPress={()=> {
@@ -164,7 +214,7 @@ export default function Forum(){
                 }}
 
             >
-                <Text>Save record!</Text>
+                <Text style={{color: "white", fontSize: 18, fontWeight: "bold"}}>Save</Text>
             </TouchableOpacity>
             <KSpacer height={50}/>
         </ScrollView>

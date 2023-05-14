@@ -17,9 +17,9 @@ export default function AppNavigation(){
     return(
         <Stack.Navigator>
             <Stack.Screen  options={{headerShown:false}} name={"AppMainNavigation"} component={AppMainNavigation}/>
-            <Stack.Screen  name={"Notification"} component={Notification}/>
+            <Stack.Screen  options={{headerTitleAlign: "center"}} name={"Notifications"} component={Notification}/>
             <Stack.Screen options={{headerShown:false}} name={"Results"} component={Results}/>
-            <Stack.Screen name={"Forum"} component={Forum}/>
+            <Stack.Screen options={{headerTitleAlign: "center"}} name={"New Medical Record"} component={Forum}/>
         </Stack.Navigator>
     )
 }

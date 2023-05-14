@@ -7,7 +7,7 @@ import {KCheck_Style} from "../../styles/KCheck_Style";
 import KSpacer from "../../components/KSpacer";
 
 
-export default function Results() {
+export default function Results({route, params}) {
     const navigation = useNavigation();
     return (
         <View style={Results_Style.container}>
@@ -20,8 +20,8 @@ export default function Results() {
                 </View>
 
                 <View style={Results_Style.headerMid}>
-                    <Text style={{fontSize: 24}}>Results</Text>
-                    <Text style={{color: GRAY}}>Last check: 6 months</Text>
+                    <Text style={{fontSize: 24}}>{route.params.title}</Text>
+                    <Text style={{color: GRAY}}>Last check: 5 month(s)</Text>
                 </View>
 
                 {/*NU SCOATE ASTA*/}
@@ -92,7 +92,7 @@ export default function Results() {
                         <Feather name="info" size={30} color = "black"/>
                         <Text style={{fontWeight: "bold"}}>  Enzyme Test</Text>
                     </View>
-                    <Text style={{fontSize: 12}}>Based on lastest results, iCheck recommends to
+                    <Text style={{fontSize: 12}}>Based on latest results, iCheck recommends to
                         eat more fruits, exercise daily and drink water.
                     </Text>
                 </View>

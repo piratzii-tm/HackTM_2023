@@ -23,49 +23,55 @@ export default function PostRegister(){
     return (
         <View style={{height: "100%", backgroundColor: "white"}}>
         <ScrollView contentContainerStyle={PostRegister_Style.container}>
-            <KSpacer height={25}/>
+            <KSpacer height={50}/>
             <Text style={{fontWeight: "bold", fontSize: 24}}>Personal Information</Text>
             <KSpacer/>
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>First Name</Text>
+                <Text style={PostRegister_Style.text}>First Name *</Text>
                 <TextInput placeholder="First Name" style={PostRegister_Style.textInput}
                 value = {firstName}
                 onChangeText={text=>setFirstName(text)}/>
             </View>
 
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>Last Name</Text>
+                <Text style={PostRegister_Style.text}>Last Name *</Text>
                 <TextInput placeholder="Last Name" style={PostRegister_Style.textInput}
                 value = {lastName}
                 onChangeText={text=>setLastName(text)}/>
             </View>
 
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>Gender</Text>
+                <Text style={PostRegister_Style.text}>Gender *</Text>
                 <TextInput placeholder="Gender" style={PostRegister_Style.textInput}
                 value = {gender}
                 onChangeText={text=>setGender(text)}/>
             </View>
 
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>Age</Text>
+                <Text style={PostRegister_Style.text}>Age *</Text>
                 <TextInput placeholder="Age" style={PostRegister_Style.textInput}
                 value = {age}
-                onChangeText={text=>setAge(text)}/>
+                onChangeText={text=>setAge(text)}
+                           keyboardType={"number-pad"}
+                />
             </View>
 
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>Height(cm)</Text>
+                <Text style={PostRegister_Style.text}>Height(cm) *</Text>
                 <TextInput placeholder="Height" style={PostRegister_Style.textInput}
                 value = {height}
-                onChangeText={text=>setHeight(text)}/>
+                onChangeText={text=>setHeight(text)}
+                           keyboardType={"number-pad"}
+                />
             </View>
 
             <View style={PostRegister_Style.textInputContainer}>
-                <Text style={PostRegister_Style.text}>Weight(km)</Text>
+                <Text style={PostRegister_Style.text}>Weight(kg) *</Text>
                 <TextInput placeholder="Weight" style={PostRegister_Style.textInput}
                 value = {weight}
-                onChangeText={text=>setWeight(text)}/>
+                onChangeText={text=>setWeight(text)}
+                           keyboardType={"number-pad"}
+                />
             </View>
 
             <KSpacer/>
