@@ -8,9 +8,9 @@ import {setData} from "../../helpers/asyncStorageFunctions";
 import KCheck from "../../components/KCheck"
 import KSpacer from "../../components/KSpacer";
 import {Home_Style} from "../../styles/Home_Style";
-import {AntDesign, Ionicons, MaterialIcons} from "@expo/vector-icons";
+import {AntDesign, Entypo, Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {useNavigation} from "@react-navigation/native";
-import {BLUE} from "../../styles/ColorManager";
+import {BLUE, GRAY} from "../../styles/ColorManager";
 
 
 export function getCurrent(startDate){
@@ -23,7 +23,6 @@ export function getCurrent(startDate){
 export default function Home(){
     const navigator = useNavigation()
     const [documents,setDocuments] = useState([])
-    const navigator = useNavigation()
 
 
     useEffect( ()=>{
@@ -49,7 +48,7 @@ export default function Home(){
 
                 <View style={Home_Style.upMidContainer}>
                     <Text style={{fontSize: 14}}>Hello,</Text>
-                    <Text style={{color:BLUE, fontSize: 20, fontWeight: "bold"}}>Julia Anamaria</Text>
+                    <Text style={{color:BLUE, fontSize: 20, fontWeight: "bold"}}>Iulian Pop</Text>
                 </View>
 
                 <View style={Home_Style.upRightContainer}>
@@ -66,6 +65,70 @@ export default function Home(){
                 <KCheck link={item.image_link} date={getCurrent(item.start_date)} check_type={item.check_type}/>
             </>
             }/>
+            </View>
+            <View style={Home_Style.dorcorsContainer}>
+            <ScrollView>
+
+                <Text style={{fontSize: 16 ,alignSelf: "center"}}>Explore Doctors</Text>
+                <KSpacer height={10}/>
+                <View style={Home_Style.doctorComponent}>
+                    <View style={Home_Style.doctorLeft}>
+                        <Image style={{height: 70, width: 70, borderRadius: 10}} source={require("../../media/doctor2.jpg")}/>
+                    </View>
+
+                    <View style={Home_Style.doctorRight}>
+                        <Text style={{fontSize: 12, color: GRAY}}>Ophthalmology</Text>
+                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Stella Amanda</Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star-outlined" size={20} color="#FFD700"/>
+                        </View>
+                    </View>
+                </View>
+
+                <KSpacer height={10}/>
+
+                <View style={Home_Style.doctorComponent}>
+                    <View style={Home_Style.doctorLeft}>
+                        <Image style={{height: 70, width: 70, borderRadius: 10}} source={require("../../media/doctor1.jpg")}/>
+                    </View>
+
+                    <View style={Home_Style.doctorRight}>
+                        <Text style={{fontSize: 12, color: GRAY}}>Neurology</Text>
+                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Marian Andrei</Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                        </View>
+                    </View>
+                </View>
+
+                <KSpacer height={10}/>
+
+                <View style={Home_Style.doctorComponent}>
+                    <View style={Home_Style.doctorLeft}>
+                        <Image style={{height: 70, width: 70, borderRadius: 10}} source={require("../../media/doctor3.jpg")}/>
+                    </View>
+
+                    <View style={Home_Style.doctorRight}>
+                        <Text style={{fontSize: 12, color: GRAY}}>Neurology</Text>
+                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Oana Anamaria</Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star" size={20} color="#FFD700"/>
+                            <Entypo name="star-outlined" size={20} color="#FFD700"/>
+                            <Entypo name="star-outlined" size={20} color="#FFD700"/>
+                        </View>
+                    </View>
+                </View>
+            </ScrollView>
             </View>
         </View>
     )

@@ -4,46 +4,85 @@ import {BG, GREEN} from "./ColorManager";
 const Docs_Style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: BG,
         alignItems: 'center',
     },
 
-    uploadContainer:{
-        flexDirection:"column",
-        gap:10,
-        alignItems:"center",
-        width:"60%"
+    header: {
+        flex: 0.5,
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
     },
-    textInput: {
-        borderWidth: 1,
-        borderColor: BG,
-        borderRadius: 10,
-        height: 50,
+
+    midContainer: {
+        flex: 4,
         padding: 10,
-        width:"70%"
+        width: "100%",
     },
-    uploadBtn: {
+
+    scrollContainer: {
+        width: "100%",
+    },
+
+    footer: {
+        flex: 0.5,
+        width: "100%",
+        padding: 10,
+        alignItems: "flex-end",
+    },
+
+    uploadButton: {
+        height: "70%",
+        width: "35%",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        height: 50,
-        width: "40%",
-        backgroundColor: GREEN,
+        backgroundColor: "white",
         borderRadius: 10,
 
     },
-    oneLiner:{
-        flexDirection:"row",
-        gap:10
-    },
-    addBtn: {
-        alignItems: "center",
-        justifyContent: "center",
-        height: 40,
-        width: "50%",
-        backgroundColor: GREEN,
-        borderRadius: 10,
 
-    },
+
+
+
+    // uploadContainer:{
+    //     flexDirection:"column",
+    //     gap:10,
+    //     alignItems:"center",
+    //     width:"60%"
+    // },
+    // textInput: {
+    //     borderWidth: 1,
+    //     borderColor: BG,
+    //     borderRadius: 10,
+    //     height: 50,
+    //     padding: 10,
+    //     width:"70%"
+    // },
+    // uploadBtn: {
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     height: 50,
+    //     width: "40%",
+    //     backgroundColor: GREEN,
+    //     borderRadius: 10,
+    //
+    // },
+    // oneLiner:{
+    //     flexDirection:"row",
+    //     gap:10
+    // },
+    // addBtn: {
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     height: 40,
+    //     width: "50%",
+    //     backgroundColor: GREEN,
+    //     borderRadius: 10,
+    //
+    // },
 });
 
 export {Docs_Style}

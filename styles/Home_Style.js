@@ -43,9 +43,10 @@ const Home_Style = StyleSheet.create({
     },
 
     downContainer: {
-        flex: 5,
+        flex: 4,
         width: "100%",
         padding: 10,
+        paddingBottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: MY_BACKROUND_COLOR,
@@ -57,7 +58,35 @@ const Home_Style = StyleSheet.create({
 
     scrollContainer: {
         width: "100%",
-    }
+    },
+
+    dorcorsContainer: {
+        flex: 3,
+        width: "100%",
+        padding: 10,
+
+    },
+
+    doctorComponent: {
+        height: 100,
+        width: "100%",
+        flexDirection: "row",
+        borderRadius: 10,
+        backgroundColor: "white",
+    },
+
+    doctorLeft: {
+        flex: 1,
+        padding: 10,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    doctorRight: {
+        flex: 4,
+        justifyContent: "center",
+
+    },
 
 });
 
