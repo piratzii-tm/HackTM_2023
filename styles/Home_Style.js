@@ -69,7 +69,7 @@ const Home_Style = StyleSheet.create({
 
     doctorComponent: {
         height: 100,
-        width: 300,
+        width: 335,
         flexDirection: "row",
         borderRadius: 10,
         backgroundColor: "white",
