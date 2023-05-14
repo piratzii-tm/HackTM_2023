@@ -9,7 +9,7 @@ const Docs_Style = StyleSheet.create({
     },
 
     header: {
-        flex: 0.5,
+        height: 50,
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
@@ -28,14 +28,15 @@ const Docs_Style = StyleSheet.create({
 
     footer: {
         flex: 0.5,
+        flexDirection: "row",
         width: "100%",
         padding: 10,
-        alignItems: "flex-end",
+        justifyContent: "space-evenly",
     },
 
     uploadButton: {
         height: "70%",
-        width: "35%",
+        width: "70%",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",

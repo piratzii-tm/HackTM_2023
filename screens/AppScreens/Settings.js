@@ -19,7 +19,7 @@ export default function Settings(){
 
     return(
         <ScrollView style={Settings_Style.container}>
-            <View style={{height: 30, width: "100%", backgroundColor: "white",}}>
+            <View style={{height: 50, width: "100%", backgroundColor: "white",}}>
 
             </View>
             <View style={Settings_Style.header}>
@@ -79,7 +79,7 @@ export default function Settings(){
                         <View style={Settings_Style.iconContainer}>
                             <Fontisto name="persons" size={20} color={"white"} />
                         </View>
-                        <Text style={{fontSize: 16}}>  Partner whit us</Text>
+                        <Text style={{fontSize: 16}}>  Partner with us</Text>
                     </View>
 
                     <AntDesign name="arrowright" size={20} color={GRAY}/>
@@ -144,7 +144,7 @@ export default function Settings(){
             <KSpacer height={15}/>
 
             <TouchableOpacity style={Settings_Style.logOut} onPress={()=>handleSignOut()}>
-                <Text style={{fontSize: 24, color: "red"}}>Log out</Text>
+                <Text style={{fontSize: 16, color: "red"}}>Log out</Text>
             </TouchableOpacity>
         </ScrollView>
     )

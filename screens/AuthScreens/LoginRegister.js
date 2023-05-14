@@ -74,6 +74,7 @@ export default function LoginRegister(){
                     <Text style={LoginRegister_Style.text}>Password</Text>
                     <TextInput placeholder="Type password here..." style={LoginRegister_Style.textInput}
                                value = {password}
+                               secureTextEntry={true}
                                onChangeText={text=>setPassword(text)}/>
 
                 </View>

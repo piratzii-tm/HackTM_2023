@@ -170,13 +170,13 @@ export default function Home(){
 
                 <View style={Home_Style.upRightContainer}>
                     <MaterialIcons name="notifications" size={30} color={BLUE}
-                        onPress={() => navigator.navigate("Notification")}
+                        onPress={() => navigator.navigate("Notifications")}
                     />
                 </View>
             </View>
             <View style={Home_Style.downContainer}>
 
-            <Text style={Home_Style.subTitleText}>Explore Checkups</Text>
+            <Text style={Home_Style.subTitleText}>My Checkups</Text>
 
             <FlatList style={Home_Style.scrollContainer} data={documents} renderItem={({item}) => <>
                 <KCheck link={item.image_link} date={getCurrent(item.start_date)} check_type={item.check_type}/>
@@ -196,8 +196,8 @@ export default function Home(){
                     </View>
 
                     <View style={Home_Style.doctorRight}>
-                        <Text style={{fontSize: 12, color: GRAY}}>Ophthalmology</Text>
-                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Stella Amanda</Text>
+                        <Text style={{fontSize: 14, color: GRAY}}>Ophthalmology</Text>
+                        <Text style={{fontSize: 16, color: "black", fontWeight: "bold"}}>Dr. Stella Amanda</Text>
                         <View style={{flexDirection: "row"}}>
                             <Entypo name="star" size={20} color="#FFD700"/>
                             <Entypo name="star" size={20} color="#FFD700"/>
@@ -216,8 +216,8 @@ export default function Home(){
                     </View>
 
                     <View style={Home_Style.doctorRight}>
-                        <Text style={{fontSize: 12, color: GRAY}}>Neurology</Text>
-                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Marian Andrei</Text>
+                        <Text style={{fontSize: 14, color: GRAY}}>Neurology</Text>
+                        <Text style={{fontSize: 16, color: "black", fontWeight: "bold"}}>Dr. Marian Andrei</Text>
                         <View style={{flexDirection: "row"}}>
                             <Entypo name="star" size={20} color="#FFD700"/>
                             <Entypo name="star" size={20} color="#FFD700"/>
@@ -236,8 +236,8 @@ export default function Home(){
                     </View>
 
                     <View style={Home_Style.doctorRight}>
-                        <Text style={{fontSize: 12, color: GRAY}}>Neurology</Text>
-                        <Text style={{fontSize: 18, color: "black", fontWeight: "bold"}}>Dr. Oana Anamaria</Text>
+                        <Text style={{fontSize: 14, color: GRAY}}>Neurology</Text>
+                        <Text style={{fontSize: 16, color: "black", fontWeight: "bold"}}>Dr. Oana Anamaria</Text>
                         <View style={{flexDirection: "row"}}>
                             <Entypo name="star" size={20} color="#FFD700"/>
                             <Entypo name="star" size={20} color="#FFD700"/>
